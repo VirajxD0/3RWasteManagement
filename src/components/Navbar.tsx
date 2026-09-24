@@ -3,33 +3,27 @@ import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { company } from "../data/site";
 import { cn } from "../utils/cn";
+import { Link, usePath, isActive } from "../router";
 
 const links = [
-  { label: "Profile", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Clients", href: "#clients" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Clients", href: "/clients" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/contact" },
 ];
 
-function Logo({ dark }: { dark: boolean }) {
+function Logo({ dark, onNavigate }: { dark: boolean; onNavigate?: () => void }) {
   return (
-    <a href="#top" className="group flex items-center gap-3">
-      <span className="relative grid h-11 w-11 place-items-center">
-        <span
-          className={cn(
-            "absolute inset-0 rounded-2xl transition-transform duration-500 group-hover:rotate-12",
-            dark ? "bg-lime" : "bg-forest"
-          )}
+    <Link to="/" onClick={onNavigate} className="group flex items-center gap-3">
+      <span className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white shadow-[0_6px_16px_-8px_rgba(0,0,0,0.35)] ring-1 ring-forest/10 transition-transform duration-500 group-hover:rotate-3 group-hover:scale-[1.02]">
+        <img
+          src="/images/3rlogo.png"
+          alt="3R Waste Management logo"
+          className="h-full w-full object-contain p-1.5"
+          loading="eager"
         />
-        <span
-          className={cn(
-            "relative font-display text-lg font-bold tracking-tight",
-            dark ? "text-forest" : "text-lime"
-          )}
-        >
-          3R
-        </span>
       </span>
       <span className="leading-tight">
         <span
@@ -49,13 +43,14 @@ function Logo({ dark }: { dark: boolean }) {
           Reduce · Recycle · Reuse
         </span>
       </span>
-    </a>
+    </Link>
   );
 }
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const path = usePath();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -63,6 +58,19 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // close mobile on route change
+  useEffect(() => {
+    const h = () => setOpen(false);
+    window.addEventListener("routechange", h as any);
+    return () => window.removeEventListener("routechange", h as any);
+  }, []);
+
+  // close on path change
+  useEffect(() => setOpen(false), [path]);
+
+  // on inner pages we start transparent dark (same as home hero) so dark=false logic still works
+  // but keep scrolled style consistent
 
   return (
     <>
@@ -112,26 +120,42 @@ export default function Navbar() {
         >
           <Logo dark={!scrolled} />
 
-          <nav className="hidden items-center gap-8 lg:flex">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className={cn(
-                  "link-underline text-[13px] font-bold uppercase tracking-[0.14em] transition-colors",
-                  scrolled
-                    ? "text-forest/80 hover:text-forest"
-                    : "text-cream/80 hover:text-cream"
-                )}
-              >
-                {l.label}
-              </a>
-            ))}
+          <nav className="hidden items-center gap-7 lg:flex">
+            {links.map((l) => {
+              const active = isActive(path, l.href);
+              return (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  className={cn(
+                    "relative text-[13px] font-bold uppercase tracking-[0.14em] transition-colors",
+                    active
+                      ? scrolled
+                        ? "text-forest"
+                        : "text-lime"
+                      : scrolled
+                        ? "text-forest/70 hover:text-forest"
+                        : "text-cream/75 hover:text-cream"
+                  )}
+                >
+                  {l.label}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className={cn(
+                        "absolute -bottom-2 left-0 right-0 h-0.5 rounded-full",
+                        scrolled ? "bg-forest" : "bg-lime"
+                      )}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className={cn(
                 "group hidden items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.12em] transition-all duration-300 md:inline-flex",
                 scrolled
@@ -144,7 +168,7 @@ export default function Navbar() {
                 size={15}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
-            </a>
+            </Link>
             <button
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
@@ -172,28 +196,40 @@ export default function Navbar() {
             className="fixed inset-x-4 top-24 z-40 rounded-3xl border border-forest/10 bg-cream p-6 shadow-2xl lg:hidden"
           >
             <nav className="flex flex-col divide-y divide-forest/8">
-              {links.map((l, i) => (
-                <motion.a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i }}
-                  className="flex items-center justify-between py-4 font-display text-xl font-medium text-forest"
-                >
-                  {l.label}
-                  <ArrowUpRight size={18} className="text-leaf" />
-                </motion.a>
-              ))}
+              {links.map((l, i) => {
+                const active = isActive(path, l.href);
+                return (
+                  <motion.div
+                    key={l.href}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i }}
+                  >
+                    <Link
+                      to={l.href}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between py-4 font-display text-xl font-medium transition-colors",
+                        active ? "text-leaf" : "text-forest"
+                      )}
+                    >
+                      <span className="flex items-center gap-3">
+                        {l.label}
+                        {active && <span className="h-1.5 w-1.5 rounded-full bg-lime" />}
+                      </span>
+                      <ArrowUpRight size={18} className={active ? "text-lime bg-forest rounded-full p-1" : "text-leaf"} />
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </nav>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setOpen(false)}
               className="mt-5 flex items-center justify-center gap-2 rounded-full bg-forest py-3.5 text-[13px] font-bold uppercase tracking-[0.14em] text-lime"
             >
               Get Consultation <ArrowUpRight size={15} />
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

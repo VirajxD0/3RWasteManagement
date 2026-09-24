@@ -13,6 +13,7 @@ import {
   featuredProjects,
   moreProjects,
 } from "../data/site";
+import { Link } from "../router";
 import { cn } from "../utils/cn";
 import { Marquee, Reveal, SectionHeading } from "./ui";
 
@@ -56,8 +57,8 @@ export default function Showcase() {
                 delay={0.06 * i}
                 className={cn(i === 0 && "sm:col-span-2 sm:row-span-2")}
               >
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className={cn(
                     "group relative block h-full w-full overflow-hidden rounded-[1.6rem]",
                     i === 0 ? "min-h-[320px] sm:min-h-[560px]" : "min-h-[270px]"
@@ -93,7 +94,7 @@ export default function Showcase() {
                     </p>
                     <p className="mt-1 text-[12px] text-cream/60">{p.note}</p>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -206,8 +207,8 @@ export default function Showcase() {
 
             {/* CTA card fills remaining grid slot on lg */}
             <Reveal delay={0.35}>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="group flex h-full min-h-[220px] flex-col justify-between rounded-[1.6rem] bg-lime p-8 text-forest transition-transform duration-500 hover:-translate-y-1.5"
               >
                 <p className="font-display text-2xl font-medium leading-snug md:text-[1.65rem]">
@@ -219,7 +220,7 @@ export default function Showcase() {
                     <ArrowUpRight size={17} />
                   </span>
                 </span>
-              </a>
+              </Link>
             </Reveal>
           </div>
         </div>

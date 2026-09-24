@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { processSteps, services } from "../data/site";
+import { Link } from "../router";
 import { cn } from "../utils/cn";
 import { Reveal, SectionHeading } from "./ui";
 
@@ -162,8 +163,8 @@ export default function Services() {
             copy="From effluent recovery to vermicomposting, every 3R practice is designed, manufactured, improved & consulted in-house."
           />
           <Reveal delay={0.2}>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="group inline-flex items-center gap-2 rounded-full border border-mint/25 px-6 py-3.5 text-[12px] font-bold uppercase tracking-[0.16em] text-cream transition-all hover:border-lime hover:text-lime"
             >
               Discuss your project
@@ -171,7 +172,7 @@ export default function Services() {
                 size={15}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
-            </a>
+            </Link>
           </Reveal>
         </div>
 

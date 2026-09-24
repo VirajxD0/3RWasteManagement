@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { company, services } from "../data/site";
+import { Link } from "../router";
 import { Reveal, SectionHeading } from "./ui";
 
 const contactRows = [
@@ -212,9 +213,22 @@ export function Footer() {
     <footer className="noise relative overflow-hidden bg-ink pb-10 pt-20">
       <div className="dot-grid absolute inset-0 opacity-30" />
       <div className="relative mx-auto max-w-7xl px-5 md:px-6">
+        {/* logo - centered */}
+        <Reveal>
+          <Link to="/" className="group mx-auto flex justify-center">
+            <span className="inline-flex items-center justify-center rounded-[1.6rem] bg-white p-2.5 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.02] group-hover:rotate-1">
+              <img
+                src="/images/3rlogo.png"
+                alt="3R Waste Management logo"
+                className="h-14 w-auto object-contain md:h-16"
+                loading="lazy"
+              />
+            </span>
+          </Link>
+        </Reveal>
         {/* giant wordmark */}
         <Reveal>
-          <a href="#top" className="group block text-center">
+          <Link to="/" className="group mt-8 block text-center">
             <p className="font-display text-[clamp(4rem,13vw,11rem)] font-bold leading-none tracking-tight">
               <span className="text-cream transition-colors duration-500 group-hover:text-lime">
                 3R
@@ -223,7 +237,7 @@ export function Footer() {
               <span className="text-cream">mgmt</span>
               <span className="text-lime">.</span>
             </p>
-          </a>
+          </Link>
         </Reveal>
 
         <div className="mt-14 grid gap-10 border-t border-mint/10 pt-12 md:grid-cols-12">
@@ -245,15 +259,16 @@ export function Footer() {
             </p>
             <ul className="mt-4 space-y-2.5">
               {[
-                ["Company Profile", "#about"],
-                ["Services", "#services"],
-                ["Projects", "#projects"],
-                ["Clients", "#clients"],
-                ["Contact", "#contact"],
+                ["Home", "/"],
+                ["Services", "/services"],
+                ["Projects", "/projects"],
+                ["Clients", "/clients"],
+                ["Gallery", "/gallery"],
+                ["Contact", "/contact"],
               ].map(([label, href]) => (
                 <li key={href}>
-                  <a
-                    href={href}
+                  <Link
+                    to={href}
                     className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-cream/80 transition-colors hover:text-lime"
                   >
                     {label}
@@ -261,7 +276,7 @@ export function Footer() {
                       size={13}
                       className="opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
                     />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -290,7 +305,10 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-mint/10 pt-7">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-mint/45">
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-mint/45">
+            <span className="inline-flex h-7 w-7 items-center justify-center overflow-hidden rounded-lg bg-white p-1">
+              <img src="/images/3rlogo.png" alt="3R logo" className="h-full w-full object-contain" loading="lazy" />
+            </span>
             © 2006–2026 {company.name} · {company.city}
           </p>
           <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-mint/45">

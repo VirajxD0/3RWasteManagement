@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
 import { useRef } from "react";
 import { aboutImages, heroStats, techStrip } from "../data/site";
+import { Link } from "../router";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -116,8 +117,8 @@ export default function Hero() {
                 transition={{ duration: 0.9, delay: 0.68, ease: EASE }}
                 className="mt-9 flex flex-wrap items-center gap-4"
               >
-                <a
-                  href="#services"
+                <Link
+                  to="/services"
                   className="group inline-flex items-center gap-2.5 rounded-full bg-lime px-7 py-4 text-[13px] font-bold uppercase tracking-[0.14em] text-forest transition-all duration-300 hover:shadow-[0_16px_40px_-12px_rgba(201,241,88,0.5)]"
                 >
                   Explore Services
@@ -125,9 +126,9 @@ export default function Hero() {
                     size={16}
                     className="transition-transform duration-300 group-hover:translate-y-0.5"
                   />
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  to="/contact"
                   className="group inline-flex items-center gap-2.5 rounded-full border border-mint/30 px-7 py-4 text-[13px] font-bold uppercase tracking-[0.14em] text-cream transition-all duration-300 hover:border-lime hover:text-lime"
                 >
                   Request a Proposal
@@ -135,7 +136,7 @@ export default function Hero() {
                     size={16}
                     className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
-                </a>
+                </Link>
               </motion.div>
 
               <motion.p
