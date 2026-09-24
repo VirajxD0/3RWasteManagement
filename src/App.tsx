@@ -7,6 +7,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ClientsPage from "./pages/ClientsPage";
 import ContactPage from "./pages/ContactPage";
 import GalleryPage from "./pages/GalleryPage";
+import FounderPage from "./pages/FounderPage";
 
 function RouteView() {
   const path = usePath();
@@ -17,6 +18,7 @@ function RouteView() {
   if (path === "/clients") return <ClientsPage />;
   if (path === "/contact") return <ContactPage />;
   if (path === "/gallery") return <GalleryPage />;
+  if (path === "/founder") return <FounderPage />;
 
   // fallback 404 -> home-ish with message
   return (

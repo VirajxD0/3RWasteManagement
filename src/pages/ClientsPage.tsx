@@ -45,7 +45,7 @@ export default function ClientsPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-7xl px-5 md:px-6 -mt-6">
+      <div className="mx-auto max-w-7xl px-5 pt-8 md:px-6 md:pt-10">
         <div className="grid gap-3 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="rounded-2xl bg-white p-5 border border-forest/10">

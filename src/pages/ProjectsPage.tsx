@@ -45,9 +45,9 @@ export default function ProjectsPage() {
         ]}
       />
 
-      {/* quick stats */}
-      <div className="mx-auto max-w-7xl px-5 md:px-6">
-        <div className="grid gap-4 md:grid-cols-4 -mt-6">
+      {/* quick stats — spaced from hero CTA */}
+      <div className="mx-auto max-w-7xl px-5 pt-8 md:px-6 md:pt-10">
+        <div className="grid gap-4 md:grid-cols-4">
           {statCards.map((s) => (
             <div key={s.label} className="rounded-2xl border border-forest/10 bg-white p-5">
               <p className="font-display text-2xl font-semibold text-forest">{s.value}</p>

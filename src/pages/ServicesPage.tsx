@@ -115,9 +115,9 @@ export default function ServicesPage() {
         ]}
       />
 
-      {/* quick jump */}
-      <div className="mx-auto max-w-7xl px-5 md:px-6">
-        <div className=" -mt-6 flex flex-wrap gap-2">
+      {/* quick jump — spaced from hero CTA */}
+      <div className="mx-auto max-w-7xl px-5 pt-8 md:px-6 md:pt-10">
+        <div className="flex flex-wrap gap-2">
           {services.map((s) => (
             <a
               key={s.id}

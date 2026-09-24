@@ -264,6 +264,7 @@ export function Footer() {
                 ["Projects", "/projects"],
                 ["Clients", "/clients"],
                 ["Gallery", "/gallery"],
+                ["Founder", "/founder"],
                 ["Contact", "/contact"],
               ].map(([label, href]) => (
                 <li key={href}>

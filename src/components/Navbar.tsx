@@ -11,7 +11,8 @@ const links = [
   { label: "Projects", href: "/projects", num: "03" },
   { label: "Clients", href: "/clients", num: "04" },
   { label: "Gallery", href: "/gallery", num: "05" },
-  { label: "Contact", href: "/contact", num: "06" },
+  { label: "Founder", href: "/founder", num: "06" },
+  { label: "Contact", href: "/contact", num: "07" },
 ];
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -115,6 +116,12 @@ export default function Navbar() {
             >
               <Phone size={12} /> {company.phoneLandline}
             </a>
+            <a
+              href="tel:+919850139390"
+              className="flex items-center gap-1.5 transition-colors hover:text-lime"
+            >
+              <Phone size={12} /> +91 98501 39390
+            </a>
             <a href={`mailto:${company.email}`} className="transition-colors hover:text-lime">
               {company.emailDisplay}
             </a>
@@ -137,7 +144,7 @@ export default function Navbar() {
             "mx-auto flex max-w-7xl items-center justify-between transition-all duration-500",
             // when scrolled: premium pill with side margins on mobile, full pill on desktop
             scrolled
-              ? "mx-3 mt-3 h-[60px] rounded-2xl border border-forest/10 bg-cream/90 px-4 shadow-[0_18px_40px_-20px_rgba(10,31,22,0.35),0_1px_0_rgba(255,255,255,0.6)_inset] backdrop-blur-xl sm:mx-4 sm:h-16 sm:rounded-full sm:px-5 md:px-6 lg:mx-6 xl:mx-auto"
+              ? "mx-3 mt-3 h-[60px] rounded-2xl border border-forest/10 bg-mint/90 px-4 shadow-[0_18px_40px_-20px_rgba(10,31,22,0.35),0_1px_0_rgba(255,255,255,0.6)_inset] backdrop-blur-xl sm:mx-4 sm:h-16 sm:rounded-full sm:px-5 md:px-6 lg:mx-6 xl:mx-auto"
               : // when top: transparent, taller, with safe padding
                 "h-[68px] bg-transparent px-4 sm:h-20 sm:px-5 md:px-6"
           )}
