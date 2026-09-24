@@ -23,6 +23,13 @@ const iconMap = {
   wrench: Wrench,
 };
 
+const servicePhotos: Record<string, string> = {
+  water: "/images/photos/WTP_THIMPU_BHUTAN.jpeg",
+  solid: "/images/photos/page_06_image_03.jpeg",
+  eia: "/images/photos/MONROVIA_AGRO_FOODS.jpeg",
+  om: "/images/photos/ETP_LAUNDRY_HOTEL_RADISSON.jpeg",
+};
+
 const extended = {
   water: {
     headline: "Water & waste water — engineered to reuse, not just discharge",
@@ -149,6 +156,17 @@ export default function ServicesPage() {
                     <h2 className={`font-display mt-6 text-[1.7rem] font-medium leading-tight md:text-[2rem] ${isDark ? "text-cream" : "text-forest"}`}>{s.title}</h2>
                     <p className={`mt-2 text-[11px] font-bold uppercase tracking-[0.2em] ${isDark ? "text-mint/60" : "text-clay"}`}>{s.tagline}</p>
                     <p className={`mt-5 text-[14px] leading-relaxed ${isDark ? "text-mint/80" : "text-clay"}`}>{s.description}</p>
+                    <div className="mt-6 overflow-hidden rounded-2xl border border-forest/10 shadow-sm">
+                      <img
+                        src={servicePhotos[s.id]}
+                        alt={`${s.title} — real 3R project site`}
+                        className="h-48 w-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className={`px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] ${isDark ? "bg-lime text-forest" : "bg-forest text-lime"}`}>
+                        Real site photo — {s.title.split("—")[0].trim() || s.title}
+                      </div>
+                    </div>
                     <p className={`font-display mt-8 text-lg font-medium italic ${isDark ? "text-cream" : "text-forest"}`}>{ext.headline}</p>
                     <ul className="mt-4 space-y-3">
                       {ext.bullets.map((b) => (

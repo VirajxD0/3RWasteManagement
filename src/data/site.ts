@@ -216,33 +216,22 @@ export type Project = {
 };
 
 const img = {
-  bhutan:
-    "https://images.pexels.com/photos/32418621/pexels-photo-32418621.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  phoenix:
-    "https://images.pexels.com/photos/19281034/pexels-photo-19281034.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  alibaug:
-    "https://images.pexels.com/photos/11452356/pexels-photo-11452356.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  karjat:
-    "https://images.pexels.com/photos/13016004/pexels-photo-13016004.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  laundry:
-    "https://images.pexels.com/photos/33514501/pexels-photo-33514501.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  sahyadri:
-    "https://images.pexels.com/photos/18843272/pexels-photo-18843272.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  cerebrum:
-    "https://images.pexels.com/photos/31403876/pexels-photo-31403876.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  tastybite:
-    "https://images.pexels.com/photos/3089681/pexels-photo-3089681.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  taj: "https://images.pexels.com/photos/5532845/pexels-photo-5532845.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  hsbc: "https://images.pexels.com/photos/10040001/pexels-photo-10040001.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  monroviaEtp:
-    "https://images.pexels.com/photos/17882790/pexels-photo-17882790.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  monroviaRo:
-    "https://images.pexels.com/photos/38336747/pexels-photo-38336747.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  pmc: "https://images.pexels.com/photos/20177021/pexels-photo-20177021.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  compost:
-    "https://images.pexels.com/photos/28214180/pexels-photo-28214180.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-  organic:
-    "https://images.pexels.com/photos/6994745/pexels-photo-6994745.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+  // Real project photos — from /public/images/photos/
+  bhutan: "/images/photos/WTP_THIMPU_BHUTAN.jpeg",
+  phoenix: "/images/photos/STP_PHEONIXHALL.jpeg",
+  alibaug: "/images/photos/STP_HOTEL_RADISSON_ALIBAUG.jpeg",
+  karjat: "/images/photos/STP_RADISSON_KARJAT_MUMBAI.jpeg",
+  laundry: "/images/photos/ETP_LAUNDRY_HOTEL_RADISSON.jpeg",
+  sahyadri: "/images/photos/ETP_SAHYDARI.jpeg",
+  cerebrum: "/images/photos/page_06_image_03.jpeg",
+  tastybite: "/images/photos/TASTY_BITE_ETP_DAUND_PUNE.jpeg",
+  taj: "/images/photos/HOTEL_TAJ_BLUE_DIAMOND_PUNE.jpeg",
+  hsbc: "/images/photos/STP_PHEONIXHALL.jpeg",
+  monroviaEtp: "/images/photos/MONROVIA_AGRO_FOODS.jpeg",
+  monroviaRo: "/images/photos/MONROVIA_AGRO_FOODS.jpeg",
+  pmc: "/images/photos/page_06_image_03.jpeg",
+  compost: "/images/photos/page_06_image_03.jpeg",
+  organic: "/images/photos/MONROVIA_AGRO_FOODS.jpeg",
 };
 
 export const aboutImages = {
@@ -302,42 +291,49 @@ export const moreProjects: Project[] = [
     location: "Pune",
     type: "STP",
     note: "IT park sewage treatment",
+    image: img.cerebrum,
   },
   {
     title: "ETP — Tastybite",
     location: "Daund, Pune",
     type: "ETP",
     note: "Food industry effluent",
+    image: img.tastybite,
   },
   {
     title: "STP — Hotel Taj Blue Diamond",
     location: "Pune",
     type: "STP",
     note: "Built & operated",
+    image: img.taj,
   },
   {
     title: "STP — HSBC Software",
     location: "IT Company",
     type: "STP",
     note: "Built & operated",
+    image: img.hsbc,
   },
   {
     title: "Slaughter House ETP — Monrovia",
     location: "Poultry processing",
     type: "ETP",
     note: "Built & operated",
+    image: img.monroviaEtp,
   },
   {
     title: "RO Plant — Monrovia Agro Foods",
     location: "Pune",
     type: "WTP",
     note: "Reverse osmosis plant",
+    image: img.monroviaRo,
   },
   {
     title: "Solid Food Waste Treatment Plant",
     location: "Pune Municipal Corporation",
     type: "SWTP",
     note: "Municipal food waste facility",
+    image: img.pmc,
   },
 ];
 

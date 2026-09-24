@@ -19,7 +19,7 @@ function Logo({ dark, onNavigate }: { dark: boolean; onNavigate?: () => void }) 
     <Link to="/" onClick={onNavigate} className="group flex items-center gap-3">
       <span className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white shadow-[0_6px_16px_-8px_rgba(0,0,0,0.35)] ring-1 ring-forest/10 transition-transform duration-500 group-hover:rotate-3 group-hover:scale-[1.02]">
         <img
-          src="/images/3rlogo.png"
+          src="/images/LOGOFINAL.png"
           alt="3R Waste Management logo"
           className="h-full w-full object-contain p-1.5"
           loading="eager"

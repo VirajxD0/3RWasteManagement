@@ -218,7 +218,7 @@ export function Footer() {
           <Link to="/" className="group mx-auto flex justify-center">
             <span className="inline-flex items-center justify-center rounded-[1.6rem] bg-white p-2.5 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.02] group-hover:rotate-1">
               <img
-                src="/images/3rlogo.png"
+                src="/images/LOGOFINAL.png"
                 alt="3R Waste Management logo"
                 className="h-14 w-auto object-contain md:h-16"
                 loading="lazy"
@@ -307,7 +307,7 @@ export function Footer() {
         <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-mint/10 pt-7">
           <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-mint/45">
             <span className="inline-flex h-7 w-7 items-center justify-center overflow-hidden rounded-lg bg-white p-1">
-              <img src="/images/3rlogo.png" alt="3R logo" className="h-full w-full object-contain" loading="lazy" />
+              <img src="/images/LOGOFINAL.png" alt="3R logo" className="h-full w-full object-contain" loading="lazy" />
             </span>
             © 2006–2026 {company.name} · {company.city}
           </p>

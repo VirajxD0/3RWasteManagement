@@ -127,6 +127,24 @@ export default function ContactPage() {
               </div>
               <div className="px-6 py-3 text-[11px] leading-relaxed text-clay">Office No. 24, ‘C’ Wing, 5th Floor, K.K. Market, Bibwewadi, Pune 411037 — landmark opposite City Pride.</div>
             </div>
+
+            {/* recent sites — real photos */}
+            <div className="mt-6">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-clay">On the ground — recent sites</p>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {[
+                  { src: "/images/photos/WTP_THIMPU_BHUTAN.jpeg", label: "WTP — Thimphu, Bhutan · 0.5 MLD" },
+                  { src: "/images/photos/STP_HOTEL_RADISSON_ALIBAUG.jpeg", label: "STP — Radisson, Alibaug" },
+                  { src: "/images/photos/HOTEL_TAJ_BLUE_DIAMOND_PUNE.jpeg", label: "STP — Taj Blue Diamond, Pune" },
+                  { src: "/images/photos/MONROVIA_AGRO_FOODS.jpeg", label: "ETP — Monrovia Agro, Pune" },
+                ].map((p) => (
+                  <div key={p.src} className="overflow-hidden rounded-2xl border border-forest/10 bg-white">
+                    <img src={p.src} alt={p.label} className="h-28 w-full object-cover" loading="lazy" />
+                    <p className="bg-forest px-3 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-lime">{p.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* right - form */}

@@ -172,7 +172,7 @@ export default function ProjectsPage() {
               </div>
             </div>
             <div className="relative min-h-[320px] lg:col-span-5">
-              <img src="https://images.pexels.com/photos/32418621/pexels-photo-32418621.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=800" alt="Bhutan WTP" className="absolute inset-0 h-full w-full object-cover" />
+              <img src="/images/photos/WTP_THIMPU_BHUTAN.jpeg" alt="Bhutan WTP — 0.5 MLD Water Treatment Plant, Thimphu" className="absolute inset-0 h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent lg:bg-gradient-to-r" />
               <div className="absolute bottom-5 left-5 rounded-xl bg-lime px-4 py-3 text-forest">
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em]">Farthest build</p>
