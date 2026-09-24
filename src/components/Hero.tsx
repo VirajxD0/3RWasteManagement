@@ -49,14 +49,13 @@ export default function Hero() {
       >
         <div className="dot-grid absolute inset-0 opacity-60" />
 
-        {/* ghost outline word */}
-        <div className="pointer-events-none absolute -right-10 top-24 hidden select-none xl:block">
-          <p className="text-outline font-display text-[11rem] font-bold leading-none tracking-tight">
-            2006
-          </p>
-        </div>
-
         <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-6 md:pt-44 lg:pb-24">
+          {/* ghost outline word — kept inside container so viewport never clips the "6" */}
+          <div className="pointer-events-none absolute right-0 top-20 hidden select-none overflow-hidden pr-2 xl:block xl:right-2 2xl:right-4">
+            <p className="text-outline font-display text-[clamp(7rem,8.5vw,10.5rem)] 2xl:text-[11rem] font-bold leading-none tracking-tight">
+              2006
+            </p>
+          </div>
           <div className="grid items-center gap-14 lg:grid-cols-12">
             {/* Copy */}
             <motion.div style={{ y: textY }} className="lg:col-span-7">
