@@ -17,7 +17,6 @@ export const company = {
   email: "3rwastemanagement@gmail.com",
   emailDisplay: "3rwastemanagement@gmail.com",
   website: "www.3rwastemanagement.com",
-  bank: "IDBI, Swargate, Pune",
 };
 
 export const heroStats = [

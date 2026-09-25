@@ -3,7 +3,6 @@ import {
   Briefcase,
   CalendarCheck2,
   CheckCircle2,
-  Landmark,
   MapPin,
   Recycle,
   RefreshCw,
@@ -35,11 +34,6 @@ const infoCards = [
       "Water & Waste Water Management,",
       "Solid Waste Management.",
     ],
-  },
-  {
-    icon: Landmark,
-    title: "Bankers",
-    lines: ["IDBI Bank,", "Swargate,", "Pune."],
   },
 ];
 
@@ -100,7 +94,7 @@ export default function About() {
 
           {/* Right — info cards */}
           <div className="lg:col-span-7">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {infoCards.map((card, i) => (
                 <Reveal key={card.title} delay={0.08 * i} className="h-full">
                   <div className="group flex h-full flex-col rounded-3xl border border-forest/10 bg-white/60 p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-moss/40 hover:shadow-[var(--shadow-card)]">

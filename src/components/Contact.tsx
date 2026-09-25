@@ -1,7 +1,6 @@
 import {
   ArrowUpRight,
   Globe,
-  Landmark,
   Mail,
   MapPin,
   Phone,
@@ -36,12 +35,6 @@ const contactRows = [
     label: "Website",
     value: company.website,
     href: `https://${company.website}`,
-  },
-  {
-    icon: Landmark,
-    label: "Bankers",
-    value: company.bank,
-    href: undefined,
   },
 ];
 
@@ -300,7 +293,6 @@ export function Footer() {
                   {company.email}
                 </a>
               </li>
-              <li>Bankers: {company.bank}</li>
             </ul>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, Clock, Globe, Landmark, Mail, MapPin, Phone, Send, BadgeCheck } from "lucide-react";
+import { ArrowUpRight, Clock, Globe, Mail, MapPin, Phone, Send, BadgeCheck } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { company, services } from "../data/site";
 import { Reveal, SectionHeading, Tag } from "../components/ui";
@@ -9,7 +9,6 @@ const contactRows = [
   { icon: Phone, label: "Phone", value: `${company.phoneLandline} · ${company.phones.join(" / ")}`, href: `tel:${company.phoneLandline.replace(/-/g, "")}` },
   { icon: Mail, label: "E-Mail", value: company.email, href: `mailto:${company.email}` },
   { icon: Globe, label: "Website", value: company.website, href: `https://${company.website}` },
-  { icon: Landmark, label: "Bankers", value: company.bank, href: undefined as string | undefined },
 ];
 
 const faqs = [
